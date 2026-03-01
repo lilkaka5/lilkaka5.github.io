@@ -1,0 +1,102 @@
+---
+const skills = [
+  { label: 'Identity & Access Management', icon: '🔑' },
+  { label: 'Cybersecurity Compliance & Governance', icon: '🛡️' },
+  { label: 'Security Operations & Incident Response', icon: '🚨' },
+  { label: 'Cloud Security & Azure Governance', icon: '☁️' },
+  { label: 'Enterprise Digital Transformation', icon: '⚡' },
+  { label: 'Automation & Process Optimization', icon: '⚙️' },
+  { label: 'Vulnerability Management & Threat Analysis', icon: '🔍' },
+  { label: 'Vendor & Third-Party Risk Management', icon: '🤝' },
+];
+
+const tools = [
+  'Microsoft Entra ID', 'Azure AD', 'Intune', 'Jamf Pro',
+  'Zscaler', 'KQL', 'Microsoft Sentinel', 'Defender for Endpoint',
+  'Exchange Online', 'SharePoint', 'Teams', 'PowerShell',
+  'HITRUST', 'SOC II', 'PCI-DSS', 'NIST', 'YubiKey',
+  'Conditional Access', 'MFA / SSO', 'Azure Policy',
+];
+---
+<section class="section animate delay-1">
+  <div class="container">
+    <h2 class="section-title">Core Competencies</h2>
+    <div class="skills-grid">
+      {skills.map(s => (
+        <div class="skill-card">
+          <span class="icon">{s.icon}</span>
+          <span>{s.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="tools-title">Tools & Technologies</h3>
+    <div class="tools">
+      {tools.map(t => <span class="tool">{t}</span>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section { padding: 80px 24px; border-top: 1px solid var(--border); }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .icon { font-size: 1.1rem; }
+
+  .tools-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+</style>

@@ -1,0 +1,138 @@
+---
+const jobs = [
+  {
+    title: 'Senior Security Analyst',
+    company: 'NationsBenefits',
+    date: 'August 2022 – Present',
+    summary: 'Recruited to elevate security posture and operational efficiency. Collaborated with C-Suite to develop and implement cybersecurity vision and strategy. Managed a dynamic environment supporting up to 5,000 users/devices. Achieved HITRUST, SOC II, and PCI accreditation.',
+    achievements: [
+      { label: 'Cybersecurity Compliance & Accreditation', detail: 'Led the organization to achieve HITRUST, SOC II, and PCI accreditation.' },
+      { label: 'Cloud Security & Governance', detail: 'Led cloud-first security transformation — Azure Access Reviews, custom Intune compliance policies, Azure Policy management, and full migration from domain-joined Windows to cloud-based Intune.' },
+      { label: 'Security Operations Center', detail: 'Established and managed SOC team, enhancing incident response capabilities and reducing response times. Developed and maintained SOPs.' },
+      { label: 'Identity & Access Management', detail: 'Led implementation of Azure AD Authentication, MFA, SSO, Conditional Access Policies, and YubiKey deployment.' },
+      { label: 'Data Loss Prevention & Email Security', detail: 'Revamped email DLP policy with automation to reduce detection/response time. Implemented DKIM, DMARC, and customized DLP policies.' },
+      { label: 'Automation & Process Optimization', detail: 'Automated access reviews and governance processes. Developed custom KQL queries for proactive threat analysis and monitoring.' },
+      { label: 'Vulnerability Management', detail: 'Established a vulnerability management program with systematic remediation and daily threat analysis.' },
+    ],
+  },
+  {
+    title: 'Technical Support Engineer',
+    company: 'Champion Solutions Group / CDW',
+    date: 'May 2018 – August 2022',
+    summary: 'Delivered advanced technical support for 300+ clients across Office 365 and Azure. Led a team of five remote engineers. Named Employee of the Quarter Q2 2021.',
+    achievements: [
+      { label: 'Cloud Expertise', detail: 'Delivered advanced technical support for 300+ clients across Office 365 and Azure.' },
+      { label: 'Team Leadership', detail: 'Led a specialized team of five remote employees, providing guidance for resolving complex technical issues.' },
+      { label: 'Certifications', detail: 'Earned 12 certifications in Microsoft ecosystems, Azure, cybersecurity, and network architecture.' },
+      { label: 'Client Optimization', detail: 'Conducted license reviews and Azure calculator evaluations, optimizing clients\' technical resources and financial plans.' },
+      { label: 'Service Delivery', detail: 'Administered Office 365 Admin Centers for 300+ clients across Azure AD, Teams, Intune, OneDrive, SharePoint, and Exchange.' },
+    ],
+  },
+];
+---
+<section class="section animate delay-2">
+  <div class="container">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline">
+      {jobs.map((job, i) => (
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <h3>{job.title}</h3>
+              <p class="company">{job.company}</p>
+            </div>
+            <span class="date">{job.date}</span>
+          </div>
+          <p class="summary">{job.summary}</p>
+          <ul>
+            {job.achievements.map(a => (
+              <li>
+                <strong>{a.label}:</strong> {a.detail}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section { padding: 80px 24px; border-top: 1px solid var(--border); }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  .timeline { display: flex; flex-direction: column; gap: 24px; }
+
+  .job {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+
+  .job:hover { border-color: var(--accent-dim); }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 16px;
+  }
+
+  .job-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .company {
+    font-size: 0.88rem;
+    color: var(--accent);
+    margin-top: 3px;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    background: var(--surface2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    height: fit-content;
+  }
+
+  .summary {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  li {
+    font-size: 0.87rem;
+    color: var(--muted);
+    padding-left: 16px;
+    border-left: 2px solid var(--accent-dim);
+    line-height: 1.6;
+  }
+
+  li strong { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .job-header { flex-direction: column; }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Certifications from '../components/Certifications.astro';
+import Education from '../components/Education.astro';
+---
+<Layout>
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name">CM<span class="accent">IV</span></span>
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="mailto:miyarescarlosiv@icloud.com" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div id="hero"><Hero /></div>
+    <div id="skills"><Skills /></div>
+    <div id="experience"><Experience /></div>
+    <div id="certifications"><Certifications /></div>
+    <Education />
+  </main>
+
+  <footer>
+    <p>Carlos Miyares IV &nbsp;·&nbsp; Fort Lauderdale, FL &nbsp;·&nbsp;
+      <a href="mailto:miyarescarlosiv@icloud.com">miyarescarlosiv@icloud.com</a>
+    </p>
+    <p class="built">Built with Astro · Hosted on GitHub Pages</p>
+  </footer>
+</Layout>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 12, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .accent { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.88rem;
+  }
+
+  .nav-links a { color: var(--muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: #000 !important;
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .built { font-size: 0.78rem; color: var(--dim); margin-top: 6px; }
+</style>

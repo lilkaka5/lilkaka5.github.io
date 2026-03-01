@@ -1,0 +1,97 @@
+---
+const certs = [
+  { code: 'CISSP', name: 'Certified Information Systems Security Professional', issuer: 'ISC2', tier: 'gold' },
+  { code: 'AZ-500', name: 'Azure Security Engineer Associate', issuer: 'Microsoft', tier: 'gold' },
+  { code: 'SEC+', name: 'Security+', issuer: 'CompTIA', tier: 'silver' },
+  { code: 'AZ-104', name: 'Azure Administrator', issuer: 'Microsoft', tier: 'silver' },
+  { code: 'CCENT', name: 'Cisco Certified Entry Networking Technician', issuer: 'Cisco', tier: 'silver' },
+  { code: 'MD-101', name: 'Managing Modern Desktops', issuer: 'Microsoft', tier: 'base' },
+  { code: 'MD-100', name: 'Windows 10', issuer: 'Microsoft', tier: 'base' },
+  { code: 'SC-900', name: 'Security, Compliance & Identity Fundamentals', issuer: 'Microsoft', tier: 'base' },
+  { code: '70-346', name: 'Managing Office 365 Identities & Requirements', issuer: 'Microsoft', tier: 'base' },
+  { code: '70-347', name: 'Enabling Office 365 Services', issuer: 'Microsoft', tier: 'base' },
+  { code: 'AZ-900', name: 'Azure Fundamentals', issuer: 'Microsoft', tier: 'base' },
+  { code: 'MDA', name: 'Modern Desktop Administrator', issuer: 'Microsoft', tier: 'base' },
+];
+---
+<section class="section animate delay-3">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-grid">
+      {certs.map(c => (
+        <div class={`cert cert-${c.tier}`}>
+          <span class="cert-code">{c.code}</span>
+          <div class="cert-info">
+            <p class="cert-name">{c.name}</p>
+            <p class="cert-issuer">{c.issuer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section { padding: 80px 24px; border-top: 1px solid var(--border); }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+  }
+
+  .cert {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .cert:hover { transform: translateY(-2px); }
+
+  .cert-gold { border-left: 3px solid #f0b429; }
+  .cert-silver { border-left: 3px solid var(--accent); }
+  .cert-base { border-left: 3px solid var(--dim); }
+
+  .cert-code {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: var(--surface2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    color: var(--text);
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .cert-gold .cert-code { color: #f0b429; }
+  .cert-silver .cert-code { color: var(--accent); }
+
+  .cert-name {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .cert-issuer {
+    font-size: 0.78rem;
+    color: var(--dim);
+    margin-top: 2px;
+  }
+</style>

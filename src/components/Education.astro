@@ -1,0 +1,93 @@
+---
+---
+<section class="section animate delay-4">
+  <div class="container">
+    <div class="row">
+
+      <div class="block">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+          <div class="card-left">
+            <span class="icon">🎓</span>
+          </div>
+          <div>
+            <h3>Bachelor of Business Administration</h3>
+            <p class="sub">Management Information Systems</p>
+            <p class="school">Florida Atlantic University</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="section-title">Military Service</h2>
+        <div class="card military">
+          <div class="card-left">
+            <span class="icon">🎖️</span>
+          </div>
+          <div>
+            <h3>United States Marine Corps</h3>
+            <p class="sub">Logistics Support — E4</p>
+            <p class="school">Honorable Discharge &nbsp;·&nbsp; 2008 – 2012</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .section { padding: 80px 24px 120px; border-top: 1px solid var(--border); }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: var(--accent-dim); }
+  .card.military:hover { border-color: rgba(63, 185, 80, 0.3); }
+
+  .icon { font-size: 1.5rem; }
+
+  h3 { font-size: 0.95rem; font-weight: 600; }
+
+  .sub {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  .card.military .sub { color: var(--accent2); }
+
+  .school {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .row { grid-template-columns: 1fr; }
+  }
+</style>
