@@ -9,7 +9,9 @@
         <h2 class="section-title">Education</h2>
         <div class="card">
           <div class="card-left">
-            <img src="/fau.svg" class="org-logo" alt="Florida Atlantic University" />
+            <div class="logo-badge">
+              <img src="/fau.svg" class="org-logo" alt="Florida Atlantic University" />
+            </div>
           </div>
           <div>
             <h3>Bachelor of Business Administration</h3>
@@ -79,11 +81,22 @@
     border-color: rgba(63, 185, 80, 0.3);
   }
 
-  .org-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
+  .logo-badge {
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
     flex-shrink: 0;
+  }
+
+  .org-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
   }
 
   h3 {
