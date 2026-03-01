@@ -6,9 +6,35 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "lint-staged": {
+    "*.{astro,ts,js,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@iconify-json/lucide": "^1.2.95",
+    "@iconify-json/simple-icons": "^1.2.71",
+    "astro": "^5.17.1",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^10.0.2",
+    "eslint-plugin-astro": "^1.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
