@@ -7,8 +7,9 @@ const certs = [
     name: 'Certified Information Systems Security Professional',
     issuer: 'ISC2',
     tier: 'gold',
-    icon: 'lucide:shield',
-    iconColor: '#f0b429',
+    icon: null,
+    imgSrc: '/isc2.svg',
+    iconColor: '#5CB85C',
   },
   {
     code: 'AZ-500',
@@ -108,7 +109,11 @@ const certs = [
       {
         certs.map((c) => (
           <div class={`cert cert-${c.tier}`}>
-            <Icon name={c.icon} class="cert-icon" style={`color: ${c.iconColor}`} />
+            {c.imgSrc ? (
+              <img src={c.imgSrc} class="cert-icon" alt={c.issuer} />
+            ) : (
+              <Icon name={c.icon!} class="cert-icon" style={`color: ${c.iconColor}`} />
+            )}
             <div class="cert-info">
               <p class="cert-name">
                 <span class="cert-code">{c.code}</span> {c.name}
