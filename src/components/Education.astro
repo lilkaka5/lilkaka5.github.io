@@ -9,7 +9,7 @@
         <h2 class="section-title">Education</h2>
         <div class="card">
           <div class="card-left">
-            <span class="icon">🎓</span>
+            <img src="/fau.svg" class="org-logo" alt="Florida Atlantic University" />
           </div>
           <div>
             <h3>Bachelor of Business Administration</h3>
@@ -23,7 +23,7 @@
         <h2 class="section-title">Military Service</h2>
         <div class="card military">
           <div class="card-left">
-            <span class="icon">🎖️</span>
+            <img src="/usmc.svg" class="org-logo" alt="United States Marine Corps" />
           </div>
           <div>
             <h3>United States Marine Corps</h3>
@@ -79,8 +79,11 @@
     border-color: rgba(63, 185, 80, 0.3);
   }
 
-  .icon {
-    font-size: 1.5rem;
+  .org-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   h3 {
