@@ -8,6 +8,7 @@
       <span class="badge">Security+</span>
       <span class="badge usmc">USMC Veteran</span>
     </div>
+
     <h1>Carlos Miyares <span class="iv">IV</span></h1>
     <p class="tagline">Technology, Security &amp; Risk Management Professional</p>
     <p class="location">Fort Lauderdale, FL</p>
@@ -16,6 +17,29 @@
       Specializing in IAM, cloud security, and enterprise digital transformation across organizations
       supporting 5,000+ users. USMC veteran.
     </p>
+
+    <!-- PHOTO PICKER — remove after choosing one -->
+    <div class="photo-picker">
+      <div class="photo-option">
+        <div class="photo-wrap color">
+          <img src="/photo-v1-color.jpg" alt="Carlos Miyares IV" />
+        </div>
+        <span class="label">Option 1 — Color</span>
+      </div>
+      <div class="photo-option">
+        <div class="photo-wrap grayscale">
+          <img src="/photo-v2-grayscale.jpg" alt="Carlos Miyares IV" />
+        </div>
+        <span class="label">Option 2 — B&W</span>
+      </div>
+      <div class="photo-option">
+        <div class="photo-wrap warm">
+          <img src="/photo-v3-warm.jpg" alt="Carlos Miyares IV" />
+        </div>
+        <span class="label">Option 3 — Warm</span>
+      </div>
+    </div>
+
     <div class="cta">
       <a href="mailto:miyarescarlosiv@icloud.com" class="btn-primary">Get In Touch</a>
       <a href="https://www.linkedin.com/in/carlos-miyares-68a50a57/" target="_blank" class="btn-secondary">LinkedIn</a>
@@ -51,7 +75,7 @@
   .hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 700px;
+    max-width: 860px;
   }
 
   .badges {
@@ -106,8 +130,54 @@
     font-size: 0.95rem;
     color: var(--muted);
     max-width: 560px;
-    margin: 0 auto 36px;
+    margin: 0 auto 40px;
     line-height: 1.8;
+  }
+
+  /* PHOTO PICKER */
+  .photo-picker {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .photo-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .photo-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .photo-wrap:hover {
+    transform: scale(1.04);
+  }
+
+  .photo-wrap.color  { border-color: var(--accent); box-shadow: 0 0 24px rgba(88,166,255,0.2); }
+  .photo-wrap.grayscale { border-color: #555; box-shadow: 0 0 24px rgba(255,255,255,0.08); }
+  .photo-wrap.warm   { border-color: #c87941; box-shadow: 0 0 24px rgba(200,121,65,0.2); }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.5px;
   }
 
   .cta {
