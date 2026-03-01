@@ -26,6 +26,7 @@ const certs = [
     tier: 'silver',
     icon: 'simple-icons:comptia',
     iconColor: '#C8202F',
+    iconBg: 'rgba(200, 32, 47, 0.12)',
   },
   {
     code: 'AZ-104',
@@ -112,7 +113,9 @@ const certs = [
             {c.imgSrc ? (
               <img src={c.imgSrc} class="cert-icon" alt={c.issuer} />
             ) : (
-              <Icon name={c.icon!} class="cert-icon" style={`color: ${c.iconColor}`} />
+              <span class="cert-icon-wrap" style={c.iconBg ? `background: ${c.iconBg}` : undefined}>
+                <Icon name={c.icon!} class="cert-icon" style={`color: ${c.iconColor}`} />
+              </span>
             )}
             <div class="cert-info">
               <p class="cert-name">
@@ -177,6 +180,16 @@ const certs = [
   }
   .cert-base {
     border-left: 3px solid var(--dim);
+  }
+
+  .cert-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
 
   .cert-icon {
