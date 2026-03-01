@@ -1,45 +1,71 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const skills = [
-  { label: 'Identity & Access Management', icon: '🔑' },
-  { label: 'Cybersecurity Compliance & Governance', icon: '🛡️' },
-  { label: 'Security Operations & Incident Response', icon: '🚨' },
-  { label: 'Cloud Security & Azure Governance', icon: '☁️' },
-  { label: 'Enterprise Digital Transformation', icon: '⚡' },
-  { label: 'Automation & Process Optimization', icon: '⚙️' },
-  { label: 'Vulnerability Management & Threat Analysis', icon: '🔍' },
-  { label: 'Vendor & Third-Party Risk Management', icon: '🤝' },
+  { label: 'Identity & Access Management', icon: 'lucide:key-round' },
+  { label: 'Cybersecurity Compliance & Governance', icon: 'lucide:shield-check' },
+  { label: 'Security Operations & Incident Response', icon: 'lucide:shield-alert' },
+  { label: 'Cloud Security & Azure Governance', icon: 'lucide:cloud' },
+  { label: 'Enterprise Digital Transformation', icon: 'lucide:zap' },
+  { label: 'Automation & Process Optimization', icon: 'lucide:settings-2' },
+  { label: 'Vulnerability Management & Threat Analysis', icon: 'lucide:scan-search' },
+  { label: 'Vendor & Third-Party Risk Management', icon: 'lucide:handshake' },
 ];
 
 const tools = [
-  'Microsoft Entra ID', 'Azure AD', 'Intune', 'Jamf Pro',
-  'Zscaler', 'KQL', 'Microsoft Sentinel', 'Defender for Endpoint',
-  'Exchange Online', 'SharePoint', 'Teams', 'PowerShell',
-  'HITRUST', 'SOC II', 'PCI-DSS', 'NIST', 'YubiKey',
-  'Conditional Access', 'MFA / SSO', 'Azure Policy',
+  'Microsoft Entra ID',
+  'Azure AD',
+  'Intune',
+  'Jamf Pro',
+  'Zscaler',
+  'KQL',
+  'Microsoft Sentinel',
+  'Defender for Endpoint',
+  'Exchange Online',
+  'SharePoint',
+  'Teams',
+  'PowerShell',
+  'HITRUST',
+  'SOC II',
+  'PCI-DSS',
+  'NIST',
+  'YubiKey',
+  'Conditional Access',
+  'MFA / SSO',
+  'Azure Policy',
 ];
 ---
+
 <section class="section animate delay-1">
   <div class="container">
     <h2 class="section-title">Core Competencies</h2>
     <div class="skills-grid">
-      {skills.map(s => (
-        <div class="skill-card">
-          <span class="icon">{s.icon}</span>
-          <span>{s.label}</span>
-        </div>
-      ))}
+      {
+        skills.map((s) => (
+          <div class="skill-card">
+            <Icon name={s.icon} class="skill-icon" />
+            <span>{s.label}</span>
+          </div>
+        ))
+      }
     </div>
 
     <h3 class="tools-title">Tools & Technologies</h3>
     <div class="tools">
-      {tools.map(t => <span class="tool">{t}</span>)}
+      {tools.map((t) => <span class="tool">{t}</span>)}
     </div>
   </div>
 </section>
 
 <style>
-  .section { padding: 80px 24px; border-top: 1px solid var(--border); }
-  .container { max-width: 960px; margin: 0 auto; }
+  .section {
+    padding: 80px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
 
   .section-title {
     font-size: 0.78rem;
@@ -64,9 +90,11 @@ const tools = [
     padding: 16px 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     font-size: 0.88rem;
-    transition: border-color 0.2s, transform 0.2s;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
   }
 
   .skill-card:hover {
@@ -74,7 +102,12 @@ const tools = [
     transform: translateY(-2px);
   }
 
-  .icon { font-size: 1.1rem; }
+  .skill-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
 
   .tools-title {
     font-size: 0.78rem;
