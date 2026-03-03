@@ -1,0 +1,239 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title="Blog | Carlos Miyares IV">
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-name">CM<span class="accent">IV</span></a>
+      <div class="nav-links">
+        <a href="/#skills">Skills</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#certifications">Certifications</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="mailto:miyarescarlosiv@icloud.com" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="blog-header animate">
+      <h1>Writing</h1>
+      <p class="subtitle">Security, leadership, and technology from the field.</p>
+    </div>
+
+    <div class="post-grid animate delay-1">
+      {
+        posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="post-card">
+            <div class="card-tags">
+              {post.data.tags.slice(0, 3).map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <h2>{post.data.title}</h2>
+            <p class="desc">{post.data.description}</p>
+            <div class="card-footer">
+              <span class="date">{formatDate(post.data.date)}</span>
+              <span class="read-more">Read more →</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      Carlos Miyares IV &nbsp;·&nbsp; Fort Lauderdale, FL &nbsp;·&nbsp;
+      <a href="mailto:miyarescarlosiv@icloud.com">miyarescarlosiv@icloud.com</a>
+    </p>
+    <p class="built">Built with Astro · Hosted on GitHub Pages</p>
+  </footer>
+</Layout>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(8, 12, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.88rem;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--text);
+  }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: #000 !important;
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.85;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 96px 24px 64px;
+  }
+
+  .blog-header {
+    margin-bottom: 48px;
+  }
+
+  .blog-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.2s,
+      transform 0.15s;
+  }
+
+  .post-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    letter-spacing: 0.3px;
+  }
+
+  .post-card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+  }
+
+  .date {
+    color: var(--dim);
+  }
+
+  .read-more {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .built {
+    font-size: 0.78rem;
+    color: var(--dim);
+    margin-top: 6px;
+  }
+</style>
