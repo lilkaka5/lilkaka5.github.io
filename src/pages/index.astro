@@ -5,6 +5,7 @@ import Skills from '../components/Skills.astro';
 import Experience from '../components/Experience.astro';
 import Certifications from '../components/Certifications.astro';
 import Education from '../components/Education.astro';
+import BlogPreview from '../components/BlogPreview.astro';
 ---
 
 <Layout>
@@ -15,6 +16,7 @@ import Education from '../components/Education.astro';
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
+        <a href="/blog">Blog</a>
         <a href="mailto:miyarescarlosiv@icloud.com" class="nav-cta">Contact</a>
       </div>
     </div>
@@ -25,6 +27,7 @@ import Education from '../components/Education.astro';
     <div id="skills"><Skills /></div>
     <div id="experience"><Experience /></div>
     <div id="certifications"><Certifications /></div>
+    <BlogPreview />
     <Education />
   </main>
 
