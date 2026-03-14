@@ -14,7 +14,10 @@
       <span class="badge usmc">USMC Veteran</span>
     </div>
     <h1>Carlos Miyares <span class="iv">IV</span></h1>
-    <p class="tagline">Technology, Security &amp; Risk Management Professional</p>
+    <p class="tagline">
+      <span id="typewriter" aria-live="polite"></span><span class="cursor" aria-hidden="true"
+        >|</span>
+    </p>
     <p class="location">Fort Lauderdale, FL</p>
     <p class="summary">
       Senior security analyst with a proven track record in HITRUST, SOC II, and PCI accreditation.
@@ -32,6 +35,48 @@
   </div>
   <div class="glow"></div>
 </section>
+
+<script>
+  const roles = [
+    'Technology & Security Professional',
+    'CISSP · AZ-500 Certified',
+    'Cloud Security Engineer',
+    'IAM & Risk Management Expert',
+    'USMC Veteran',
+  ];
+  const el = document.getElementById('typewriter');
+  if (el) {
+    let roleIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    const TYPE_SPEED = 60;
+    const DELETE_SPEED = 35;
+    const PAUSE_MS = 2200;
+
+    function tick() {
+      const current = roles[roleIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(tick, PAUSE_MS);
+          return;
+        }
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        el.textContent = current.slice(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+        }
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+    tick();
+  }
+</script>
 
 <style>
   .hero {
@@ -124,6 +169,24 @@
     color: var(--muted);
     font-weight: 400;
     margin-bottom: 6px;
+    min-height: 1.8em;
+  }
+
+  .cursor {
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+    font-weight: 300;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   .location {
