@@ -135,11 +135,12 @@ const tierLabel: Record<string, string> = {
     <div class="cert-grid">
       {
         certs.map((c) => (
-          <div
+          <a
             class={`flip-card cert-${c.tier}`}
-            tabindex="0"
-            role="button"
-            aria-label={`${c.code} - ${c.name}`}
+            href="https://www.linkedin.com/in/carlos-miyares-68a50a57/details/certifications/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${c.code} - ${c.name} — view on LinkedIn`}
           >
             <div class="flip-inner">
               {/* Front */}
@@ -170,7 +171,7 @@ const tierLabel: Record<string, string> = {
                 </p>
               </div>
             </div>
-          </div>
+          </a>
         ))
       }
     </div>
@@ -209,6 +210,8 @@ const tierLabel: Record<string, string> = {
     cursor: pointer;
     border-radius: 8px;
     outline: none;
+    text-decoration: none;
+    display: block;
   }
 
   .flip-card:focus-visible {
